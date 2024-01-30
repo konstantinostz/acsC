@@ -62,3 +62,40 @@ $router->matchRoute();
 } catch (Exception $ex){
     echo $ex;
 }
+
+///////////////
+post('/dashboard/sites/acsC-main/acsC-main/acss/$something',function(){
+    $something = $_SERVER['REQUEST_URI'];
+    $path = parse_url($something,PHP_URL_PATH);
+    //print_r($path);
+    $lastSegment = basename($path);
+    $result = ucfirst($lastSegment);
+    //echo $result;
+    
+    
+    if(file_exists("$result.php")){
+        include_once "/xampp/htdocs/dashboard/sites/acsC-main/acsC-main/acss/$result.php";
+    }else {
+        echo "ksexases na vali ipiresiaa mixali";
+    }
+    exit;
+});
+
+
+post('/dashboard/sites/acsC-main/acsC-main/acss/print/$something',function(){
+    $something = $_SERVER['REQUEST_URI'];
+    $path = parse_url($something,PHP_URL_PATH);
+    //print_r($path);
+    $lastSegment = basename($path);
+    $result = ucfirst($lastSegment);
+    //echo $result;
+    
+    
+    if(file_exists("$result.php")){
+        
+        include_once "/xampp/htdocs/dashboard/sites/acsC-main/acsC-main/acss/printVoucher/$result.php";
+    }else {
+        echo "ksexases na vali ipiresiaa mixali";
+    }
+    exit;
+});
